@@ -5,6 +5,8 @@ const getState = ({ getStore, getActions, setStore }) => {
       character: [],
       planets: [],
       planet: [],
+			vehicles: [], 
+			vehicle: []
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -31,8 +33,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         };
 
         const request = await fetch(url, settings);
-        const json = await request.json();
-        const data = json;
+        const data = await request.json();
         setStore({ character: [...store.character, data.result.properties] });
       },
 
@@ -69,6 +70,37 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       planetDescription: (url) => {
         getActions().getPlanetDescription(url);
+      },
+			getVehicle: async () => {
+        const settings = {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        };
+
+        const request = await fetch(
+          `https://www.swapi.tech/api/vehicles`,
+          settings
+        );
+        const json = await request.json();
+        const data = json;
+        setStore({ vehicles: data.results });
+      },
+
+      getVehicleDescription: async (url) => {
+        const store = getStore();
+        const settings = {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        };
+
+        const request = await fetch(url, settings);
+        const json = await request.json();
+        const data = json;
+        setStore({ vehicle: [...store.vehicle, data.result.properties] });
+      },
+
+      vehicleDescription: (url) => {
+        getActions().getVehicleDescription(url);
       },
     },
   };

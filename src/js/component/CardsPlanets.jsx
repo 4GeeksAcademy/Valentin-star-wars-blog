@@ -14,7 +14,7 @@ const CardsPlanets = (props) => {
     <div className="cards">
       <div className="card">
         <img
-          src="https://media.paperblog.fr/i/623/6232954/personnage-prefere-fans-star-wars-votez-maint-L-YCAQwN.jpeg"
+          src="https://oyster.ignimgs.com/mediawiki/apis.ign.com/star-wars-episode-7/4/4b/Tatooine-3.jpg"
           className="card-img-top"
           alt="..."
         />
