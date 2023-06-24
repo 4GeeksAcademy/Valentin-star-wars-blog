@@ -1,0 +1,15 @@
+.cards-content {
+  width: 80%;
+  height: 350px;
+  overflow: hidden;
+  border: 2px solid #cac873;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.card {
+  height: 348px;
+  width: 200px;
+  margin-inline: 5px;
+}

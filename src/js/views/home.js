@@ -6,23 +6,25 @@ export const Home = () => {
   const { store, actions } = useContext(Context);
 
   useEffect(() => {
-    actions.getCharacter();
+    actions.getPeople();
   }, []);
 
   return (
     <div>
       <div>
         <div>
-          <h2 className="heading">Characters</h2>
+          <h2 className="heading">Characters:</h2>
         </div>
       </div>
       <div>
-        <div className="d-flex justify-content-between overFlow">
-          {store.character
-            ? store.character.map((person, index) => (
-                <CardsPeople key={index} person={person} />
-              ))
-            : ""}
+        <div className="d-flex cards-content">
+          <div className="d-flex ">
+            {store.people
+              ? store.people.map((character, index) => (
+                  <CardsPeople key={index} id={++index} character={character} />
+                ))
+              : ""}
+          </div>
         </div>
       </div>
     </div>

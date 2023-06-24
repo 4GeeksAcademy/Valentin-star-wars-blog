@@ -2,21 +2,38 @@ const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
       people: [],
-      character: []
+      character: [],
     },
     actions: {
       // Use getActions to call a function within a fuction
-      getCharacter: async () => {
-        try {
-          const store = getStore();
-          const res = await fetch("https://www.swapi.tech/api/people/");
-          const data = await res.json();
-					setStore({ character: data.results });
-          console.log(data);
-        } catch (error) {
-          console.log("Problem while retrieving data: ", error);
-        }
-      },
+      getPeople: async () => {
+				const settings = {
+					method: "GET",
+					headers: { "Content-Type": "application/json" }
+				};
+
+				const request = await fetch(`https://www.swapi.tech/api/people`, settings);
+				const json = await request.json();
+				const data = json;
+				setStore({ people: data.results });
+			},
+
+			getCharacterDescription: async url => {
+				const store = getStore();
+				const settings = {
+					method: "GET",
+					headers: { "Content-Type": "application/json" }
+				};
+
+				const request = await fetch(url, settings);
+				const json = await request.json();
+				const data = json;
+				setStore({ character: [...store.character, data.result.properties] });
+			},
+
+			charDescription: url => {
+				getActions().getCharacterDescription(url);
+			},
     },
   };
 };
