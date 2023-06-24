@@ -1,26 +1,32 @@
 import React, { useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
 import { Context } from "../store/appContext.js";
-import Cards from "../component/Cards.jsx";
+import CardsPeople from "../component/CardsPeople.jsx";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
 
   useEffect(() => {
-    actions.getPeople();
+    actions.getCharacter();
   }, []);
 
   return (
     <div>
-      <h1>People:</h1>
-      <ul>
-        {store.people.map((person, index) => (
-          // <Cards person={person} index={index}/>
-          <li key={index}>
-            <Link to={`/person/${person.uid}`}>{person.name}</Link>
-          </li>
-        ))}
-      </ul>
+      <div>
+        <div>
+          <h2 className="heading">Characters</h2>
+        </div>
+      </div>
+      <div>
+        <div className="d-flex justify-content-between overFlow">
+          {store.character
+            ? store.character.map((person, index) => (
+                <CardsPeople key={index} person={person} />
+              ))
+            : ""}
+        </div>
+      </div>
     </div>
   );
 };
+
+export default Home;

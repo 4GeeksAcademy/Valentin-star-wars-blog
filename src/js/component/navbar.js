@@ -30,7 +30,7 @@ export const Navbar = () => {
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            Dropstart
+            FAVORITE
           </button>
           <ul className="dropdown-menu"></ul>
         </div>
