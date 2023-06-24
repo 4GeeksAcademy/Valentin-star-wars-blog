@@ -21,7 +21,7 @@ export const Home = () => {
           <div className="d-flex ">
             {store.people
               ? store.people.map((character, index) => (
-                  <CardsPeople key={index} id={++index} character={character} />
+                  <CardsPeople key={index} character={character} />
                 ))
               : ""}
           </div>

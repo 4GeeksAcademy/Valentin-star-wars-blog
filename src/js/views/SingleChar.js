@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const Single = () => {
+export const SingleChar = () => {
   const { store, actions } = useContext(Context);
   const params = useParams();
   let url = `https://www.swapi.tech/api/people/${params.uid}`;
