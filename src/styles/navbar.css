@@ -24,7 +24,7 @@
   text-transform: uppercase;
 }
 
-button::before {
+.btn-favorite::before {
   content: "";
   position: absolute;
   top: 50%;
@@ -38,11 +38,10 @@ button::before {
   transition: all 0.5s ease;
 }
 
-button:hover::before {
+.btn-favorite:hover::before {
   width: 100%;
 }
 
-.btn-favorite:hover{
+.btn-favorite:hover {
   color: #cac873;
-
 }
