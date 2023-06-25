@@ -28,6 +28,9 @@
   font-weight: 600;
   text-decoration: underline;
 }
+.value-prop {
+  font-style: italic;
+}
 
 .card {
   height: 490px;
