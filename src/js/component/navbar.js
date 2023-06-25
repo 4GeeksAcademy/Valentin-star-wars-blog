@@ -47,7 +47,7 @@ export const Navbar = () => {
                       color="yellow"
                       name="trash-alt"
                       onClick={() => {
-                        actions.deleteFavorite(index);
+                        actions.deleteFavorite(favorite);
                       }}
                     ></box-icon>
                   </h2>
