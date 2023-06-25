@@ -35,22 +35,30 @@ export const Navbar = () => {
             FAVORITE
           </button>
           <ul className="dropdown-menu mx-auto">
-            {store.favorites.map((favorite, index) => {
-              const { character, planet, vehicle } = favorite;
+            {store.favorites.map((char, planet, vehicle, index, favorites) => {
               return (
                 <li key={index}>
                   <h2>
-                    {character.name} {planet.name} {vehicle.name}{" "}
+                    {char.name} {planet.name} {vehicle.name}{" "}
                     <box-icon
                       type="solid"
                       class="bx-lg  bx-tada-hover"
                       color="orange"
                       name="trash-alt"
                       onClick={() => {
-                        actions.deleteFavorite(index);
+                        actions.deleteFavorite(favorites);
                       }}
                     ></box-icon>
                   </h2>
+                  <box-icon
+                    type="solid"
+                    class="bx-lg  bx-tada-hover"
+                    color="orange"
+                    name="trash-alt"
+                    onClick={() => {
+                      actions.deleteFavorite(favorites);
+                    }}
+                  ></box-icon>
                 </li>
               );
             })}
