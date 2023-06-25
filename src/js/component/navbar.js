@@ -36,11 +36,11 @@ export const Navbar = () => {
             <span className="fav-num">{store.favorites.length}</span>
           </button>
           <ul className="dropdown-menu  mx-auto">
-            {store.favorites.map((character, index) => {
+            {store.favorites.map((favorite, index) => {
               return (
                 <li key={index}>
                   <h2>
-                    {character.name}{" "}
+                    {favorite.name}{" "}
                     <box-icon
                       type="solid"
                       className="bx-lg bx-tada-hover"
