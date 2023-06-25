@@ -43,6 +43,7 @@ export const Navbar = () => {
                     <box-icon
                       type="solid"
                       className="bx-lg bx-tada-hover"
+                      color='yellow'
                       name="trash-alt"
                       onClick={() => {
                         actions.deleteFavorite(index);
