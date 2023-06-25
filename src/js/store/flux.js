@@ -124,7 +124,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           const data = json;
           setStore({ vehicle: [...store.vehicle, data.result.properties] });
         }catch(error){
-          console.log(error)
+          console.log('Probleme lors du chargement',error)
         }
         
       },
