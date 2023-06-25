@@ -1,6 +1,7 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { Context } from "../store/appContext.js";
 import { Link } from "react-router-dom";
+import VehiclesDetails from "./VehiclesDetails.jsx";
 
 const CardsVehicles = (props) => {
   const { store, actions } = useContext(Context);
@@ -8,6 +9,15 @@ const CardsVehicles = (props) => {
   const vehicleStore = store.vehicle.filter(
     (vhc) => vhc.name === props.vehicle.name
   );
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   useEffect(() => {
     actions.vehicleDescription(props.vehicle.url);
@@ -46,13 +56,19 @@ const CardsVehicles = (props) => {
               className="more"
               data={vehicleStore}
             >
-              <button className="btn btn-more">Learn More</button>
+              <button className="btn btn-more" onClick={openModal}>Learn More</button>
             </Link>
             <button className="btn btn-fav btn-more" onClick={() => actions.addVehicles(props.vehicle)}>&#10031;</button>
 
           </div>
         </div>
       </div>
+      <VehiclesDetails
+        vehicle={props.vehicle}
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        vehicleStore= {vehicleStore[0]}
+      />
     </div>
   );
 };

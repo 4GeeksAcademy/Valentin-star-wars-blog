@@ -85,7 +85,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           const data = json;
           setStore({ planet: [...store.planet, data.result.properties] });
         } catch (error) {
-          console.log(error);
+          console.log('Planets load problem',error);
         }
       },
 
@@ -124,7 +124,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           const data = json;
           setStore({ vehicle: [...store.vehicle, data.result.properties] });
         } catch (error) {
-          console.log("Probleme lors du chargement", error);
+          console.log("Vehicle load problem", error);
         }
       },
 

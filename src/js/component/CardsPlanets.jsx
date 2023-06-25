@@ -1,12 +1,22 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { Context } from "../store/appContext.js";
 import { Link } from "react-router-dom";
+import PlanetsDetails from "./PlanetsDetails.jsx";
 
 const CardsPlanets = (props) => {
   const { store, actions } = useContext(Context);
   const planetStore = store.planet.filter(
     (planet) => planet.name == props.planet.name
   );
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   useEffect(() => actions.planetDescription(props.planet.url), []);
 
@@ -50,13 +60,19 @@ const CardsPlanets = (props) => {
               className="more"
               data={planetStore}
             >
-              <button className="btn btn-more">Learn More</button>
+              <button className="btn btn-more" onClick={openModal}>Learn More</button>
             </Link>
             <button className="btn btn-fav btn-more" onClick={() => actions.addPlanets(props.planet)}>&#10031;</button>
 
           </div>
         </div>
       </div>
+      <PlanetsDetails
+        planet={props.planet}
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        planetStore= {planetStore[0]}
+      />
     </div>
   );
 };

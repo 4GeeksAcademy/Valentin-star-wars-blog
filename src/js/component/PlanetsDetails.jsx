@@ -2,17 +2,18 @@ import React, { useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-const PeopleDetails = (props) => {
+const PlanetsDetails = (props) => {
   const { store, actions } = useContext(Context);
   const params = useParams();
 
   useEffect(() => {
-    actions.charDescription(props.character.url);
+    actions.planetDescription(props.planet.url);
   }, []);
 
-  const character = store.character.find((char) => char.uid === params.id);
+  const planet = store.planet.find((pla) => pla.uid === params.id);
 
-  if (!character) {
+  
+  if (!planet) {
     return (
       <div
         className={`modal ${props.isOpen ? "show" : ""}`}
@@ -22,7 +23,7 @@ const PeopleDetails = (props) => {
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title">Character Not Found</h5>
+              <h5 className="modal-title">Planet Not Found</h5>
               <button
                 type="button"
                 className="btn-close"
@@ -32,7 +33,7 @@ const PeopleDetails = (props) => {
               ></button>
             </div>
             <div className="modal-body">
-              <p>The requested character does not exist.</p>
+              <p>The requested planet does not exist.</p>
             </div>
             <div className="modal-footer">
               <button
@@ -49,10 +50,9 @@ const PeopleDetails = (props) => {
       </div>
     );
   }
-
-
   return (
-    <div
+    <div>
+       <div
       className={`modal ${props.isOpen ? "show" : ""}`}
       tabIndex="-1"
       style={{ display: props.isOpen ? "block" : "none" }}
@@ -61,7 +61,7 @@ const PeopleDetails = (props) => {
         <div className="modal-content">
           <div className="modal-header">
            
-            <h5 className="modal-title">{props.character.name}</h5>
+            <h5 className="modal-title">{props.planet.name}</h5>
             <button
               type="button"
               className="btn-close"
@@ -72,18 +72,19 @@ const PeopleDetails = (props) => {
           </div>
           <div className="modal-body">
           <img
-              src={`https://starwars-visualguide.com/assets/img/characters/${props.character.uid}.jpg`}
+              src={`https://starwars-visualguide.com/assets/img/planets/${props.planet.uid}.jpg`}
               className="image-detalle col6 col-md-6"
               alt="..."
             />
             <div className="text-description">
-              <p>Gender: {character.gender}</p>
-              <p>Hair color: {character.hair_color}</p>
-              <p>Birth year: {character.birth_year}</p>
-              <p>Eye color: {character.eye_color}</p>
-              <p>Mass: {character.mass}</p>
-              <p>Skin color: {character.skin_color}</p>
-              <p>Created: {character.created}</p>
+              <p>Gravity: {planet.gravity}</p>
+              <p>Climat: {planet.climat}</p>
+              <p>Terrain: {planet.terrain}</p>
+              <p>Diameter: {planet.diameter}</p>
+              <p>Orbital period: {planet.orbital_period}</p>
+              <p>Rotation period: {planet.rotation_period}</p>
+              <p>Surface water: {planet.surface_water}</p>
+              <p>Population: {planet.population}</p>
             </div>
           </div>
           <div className="modal-footer">
@@ -93,7 +94,8 @@ const PeopleDetails = (props) => {
         </div>
       </div>
     </div>
+    </div>
   );
 };
 
-export default PeopleDetails;
+export default PlanetsDetails;
