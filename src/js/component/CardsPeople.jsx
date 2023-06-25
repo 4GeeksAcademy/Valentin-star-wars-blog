@@ -17,7 +17,7 @@ const CardsPeople = (props) => {
   
 
   const charStore = store.character.filter(
-    (char) => char.name == props.character.name
+    (char) => char.uid === props.character.uid
   );
 
   useEffect(() => actions.charDescription(props.character.url), []);

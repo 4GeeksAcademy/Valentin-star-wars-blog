@@ -37,7 +37,7 @@ const PeopleDetails = (props) => {
             <div className="modal-footer">
               <button
                 type="button"
-                className="btn btn-secondary"
+                className="btn btn-warning"
                 data-bs-dismiss="modal"
                 onClick={props.onClose}
               >
@@ -66,7 +66,7 @@ const PeopleDetails = (props) => {
               className="image_detalle col6 col-md-6"
               alt="..."
             />
-            <h5 className="modal-title">{name}</h5>
+            <h5 className="modal-title">{props.character.name}</h5>
             <button
               type="button"
               className="btn-close"
