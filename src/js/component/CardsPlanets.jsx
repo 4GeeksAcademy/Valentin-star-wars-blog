@@ -12,9 +12,15 @@ const CardsPlanets = (props) => {
 
   return (
     <div className="cards">
-      <div className="card">
+      <div className="card" key={props.index}>
         <img
-          src="https://oyster.ignimgs.com/mediawiki/apis.ign.com/star-wars-episode-7/4/4b/Tatooine-3.jpg"
+          src={
+            index > 0
+              ? `https://starwars-visualguide.com/assets/img/planets/${
+                  props.index + 1
+                }.jpg`
+              : "https://zupimages.net/up/15/53/4ipd.png"
+          }
           className="card-img-top"
           alt="..."
         />

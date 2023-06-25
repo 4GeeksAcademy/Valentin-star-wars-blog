@@ -14,9 +14,11 @@ const CardsVehicles = (props) => {
   }, []);
   return (
     <div className="cards">
-      <div className="card">
+      <div className="card" key={props.index}>
         <img
-          src="https://squir.com/media/catalog/product/cache/4709fd52db70e8ed3553f7ffe9d447ff/4/7/47948.jpg"
+          src={`https://starwars-visualguide.com/assets/img/characters/${
+            props.index + 1
+          }.jpg`}
           className="card-img-top"
           alt="..."
         />
