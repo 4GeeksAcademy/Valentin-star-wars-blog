@@ -61,9 +61,14 @@ const CardsPeople = (props) => {
                 Learn More
               </button>
             </Link>
-            <button onClick={() => {
-									actions.setFavoritesCharacters(props.character)
-								}} className="btn btn-fav btn-more">&#10031;</button>
+            <button
+              onClick={() => {
+                actions.addCharacters(props.character);
+              }}
+              className="btn btn-fav btn-more"
+            >
+              &#10031;
+            </button>
           </div>
         </div>
       </div>
