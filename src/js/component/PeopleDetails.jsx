@@ -4,15 +4,14 @@ import { Context } from "../store/appContext";
 
 const PeopleDetails = (props) => {
   const { store, actions } = useContext(Context);
+  const { uid, name, gender, hair_color, birth_year } = character;
   const params = useParams();
 
   useEffect(() => {
-    actions.charDescription(params.id);
+    actions.charDescription(props.character.url);
   }, []);
 
-  const character = store.character.find(
-    (char) => char.uid === params.id
-  );
+  const character = store.character.find((char) => char.uid === params.id);
 
   return (
     <div
@@ -24,33 +23,33 @@ const PeopleDetails = (props) => {
         <div className="modal-content">
           <div className="modal-header">
             <img
-              src={`https://starwars-visualguide.com/assets/img/characters/${params.id}.jpg`}
+              src={`https://starwars-visualguide.com/assets/img/characters/${uid}.jpg`}
               className="image_detalle col6 col-md-6"
               alt="..."
             />
-            <h5 className="modal-title">{character?.name}</h5>
+            <h5 className="modal-title">{name}</h5>
+
             <button
               type="button"
               className="btn-close"
               data-bs-dismiss="modal"
               aria-label="Close"
-              onClick={onClose}
+              onClick={props.onClose}
             ></button>
           </div>
           <div className="modal-body">
-            <p>Le texte du corps du modal est ici.</p>
+            <p>Gender: {gender}</p>
+            <p>Hair color: {hair_color}</p>
+            <p>Birth Year: {birth_year}</p>
           </div>
           <div className="modal-footer">
             <button
               type="button"
               className="btn btn-secondary"
               data-bs-dismiss="modal"
-              onCli
+              onClick={props.onClose}
             >
-              Fermer
-            </button>
-            <button type="button" className="btn btn-primary">
-              Enregistrer
+              Close
             </button>
           </div>
         </div>
@@ -58,6 +57,5 @@ const PeopleDetails = (props) => {
     </div>
   );
 };
-
 
 export default PeopleDetails;

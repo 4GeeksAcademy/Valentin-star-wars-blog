@@ -26,7 +26,11 @@ export const Home = () => {
             <div className="d-flex ">
               {store.people
                 ? store.people.map((character, index) => (
-                    <CardsPeople key={index} index={index} character={character} />
+                    <CardsPeople
+                      key={index}
+                      index={index}
+                      character={character}
+                    />
                   ))
                 : ""}
             </div>
@@ -62,7 +66,11 @@ export const Home = () => {
             <div className="d-flex ">
               {store.vehicles
                 ? store.vehicles.map((vehicle, index) => (
-                    <CardsVehicles key={index} index={index} vehicle={vehicle} />
+                    <CardsVehicles
+                      key={index}
+                      index={index}
+                      vehicle={vehicle}
+                    />
                   ))
                 : ""}
             </div>

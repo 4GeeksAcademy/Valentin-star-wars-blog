@@ -6,6 +6,7 @@ import PeopleDetails from "./PeopleDetails.jsx";
 const CardsPeople = (props) => {
   const { store, actions } = useContext(Context);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -44,7 +45,7 @@ const CardsPeople = (props) => {
           )}
           <div className="d-flex justify-content-center">
             <Link
-              to={"/PeopleDetails/" + props.character.uid}
+              to={"/people-details/" + props.character.uid}
               className="more"
               data={charStore}
             >
@@ -54,8 +55,8 @@ const CardsPeople = (props) => {
           </div>  
         </div>
       </div>
-      <PeopleDetails isOpen={isModalOpen}
-        onClose={closeModal} />
+      <PeopleDetails character={props.character} isOpen={isModalOpen} onClose={closeModal} />
+
     </div>
   );
 };
