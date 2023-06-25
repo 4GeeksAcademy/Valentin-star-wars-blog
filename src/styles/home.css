@@ -9,11 +9,12 @@ body {
   background-size: cover;
   background-position: center;
   height: 100vh;
+  font-family: "Josefin Sans";
 }
 
 .heading {
   color: #cac973;
   text-shadow: 1px 1px 2px #cac973;
   text-align: center;
-  margin-bottom: 1.3rem;
+  margin-bottom: 10px;
 }

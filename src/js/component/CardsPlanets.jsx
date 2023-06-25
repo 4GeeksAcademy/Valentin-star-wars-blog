@@ -15,7 +15,7 @@ const CardsPlanets = (props) => {
       <div className="card" key={props.index}>
         <img
           src={
-            index > 0
+            props.index > 0
               ? `https://starwars-visualguide.com/assets/img/planets/${
                   props.index + 1
                 }.jpg`
