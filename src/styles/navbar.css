@@ -4,6 +4,13 @@
 .navbar {
   padding: 0;
 }
+.dropdown-menu {
+  background: transparent;
+}
+.bx-lg {
+  font-size: #cac873;
+  color: #cac873;
+}
 
 .logo-nav {
   width: 140px;

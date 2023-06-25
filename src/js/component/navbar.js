@@ -34,7 +34,7 @@ export const Navbar = () => {
           >
             FAVORITE
           </button>
-          <ul className="dropdown-menu mx-auto">
+          <ul className="dropdown-menu  mx-auto">
             {store.favorites.map((character, index) => {
               return (
                 <li key={index}>
@@ -42,8 +42,7 @@ export const Navbar = () => {
                     {character.name}{" "}
                     <box-icon
                       type="solid"
-                      class="bx-lg  bx-tada-hover"
-                      color="orange"
+                      className="bx-lg bx-tada-hover"
                       name="trash-alt"
                       onClick={() => {
                         actions.deleteFavorite(index);
