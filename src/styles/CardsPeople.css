@@ -14,6 +14,7 @@
   color: #cac873;
   text-align: left;
   text-align: center;
+  font-size: 1.5rem;
 }
 
 .card-text {
@@ -25,11 +26,13 @@
 }
 
 .prop-span {
-  font-weight: 600;
-  text-decoration: underline;
+  font-weight: 700;
+  font-size: 1.2rem;
 }
 .value-prop {
+  font-size: 1.1rem;
   font-style: italic;
+  color: #cdccab;
 }
 
 .card {

@@ -135,7 +135,20 @@ const getState = ({ getStore, getActions, setStore }) => {
           setStore({ favorites: [...store.favorites, char] });
         }
       },
-
+      addPlanets: (planet) => {
+				const store = getStore()
+				const favoritePlanetAlreadyExist = store.favorites.includes(planet)
+				if (!favoritePlanetAlreadyExist){
+					setStore({favorites: [...store.favorites, planet]})
+				}
+			},
+			addVehicles: (vehicle) => {
+				const store = getStore();
+				const favoriteVehicleAlreadyExist = store.favorites.includes(vehicle)
+				if (!favoriteVehicleAlreadyExist) {
+					setStore({favorites: [...store.favorites, vehicle]})
+				}
+			},
       deleteFavorite: (index) => {
         const store = getStore();
         const updatedFavorites = [...store.favorites];
