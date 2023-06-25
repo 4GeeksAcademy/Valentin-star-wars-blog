@@ -52,7 +52,7 @@ const CardsPlanets = (props) => {
             >
               <button className="btn btn-more">Learn More</button>
             </Link>
-            <button className="btn btn-fav btn-more" onClick={() => actions.addPlanets(props.vehicle)}>&#10031;</button>
+            <button className="btn btn-fav btn-more" onClick={() => actions.addPlanets(props.planet)}>&#10031;</button>
 
           </div>
         </div>
