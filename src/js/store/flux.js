@@ -128,14 +128,16 @@ const getState = ({ getStore, getActions, setStore }) => {
         getActions().getVehicleDescription(url);
       },
 
-      addCharacters: (char) => {
-        const store = getStore();
-        const favoriteExist = store.favorites.some(
-          (favorite) => favorite.url === char.url
-        );
-        if (!favoriteExist) {
-          setStore({ favorites: [...store.favorites, char] });
-        }
+      addFavorites: (char) => {
+        setStore((prevState) => {
+          const favoriteCharacterAlreadyExist = prevState.favorites.some(
+            (favorite) => favorite === char
+          );
+          if (!favoriteCharacterAlreadyExist) {
+            return { favorites: [...prevState.favorites, char] };
+          }
+          return prevState;
+        });
       },
       deleteFavorite: (index) => {
         const store = getStore();
