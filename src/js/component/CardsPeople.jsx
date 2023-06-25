@@ -6,7 +6,6 @@ import PeopleDetails from "./PeopleDetails.jsx";
 const CardsPeople = (props) => {
   const { store, actions } = useContext(Context);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -14,9 +13,12 @@ const CardsPeople = (props) => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
-  
 
   const charStore = store.character.filter(
+    (char) => char.name === props.character.name
+  );
+
+  const charUidStore = store.character.filter(
     (char) => char.uid === props.character.uid
   );
 
@@ -36,9 +38,15 @@ const CardsPeople = (props) => {
           <h5 className="card-title">{props.character.name}</h5>
           {charStore[0] ? (
             <div>
-              <p className="card-text">Gender: <span>{charStore[0].gender}</span></p>
-              <p className="card-text">Hair color: <span>{charStore[0].hair_color}</span></p>
-              <p className="card-text">Birth Year: <span>{charStore[0].birth_year}</span></p>
+              <p className="card-text">
+                Gender: <span>{charStore[0].gender}</span>
+              </p>
+              <p className="card-text">
+                Hair color: <span>{charStore[0].hair_color}</span>
+              </p>
+              <p className="card-text">
+                Birth Year: <span>{charStore[0].birth_year}</span>
+              </p>
             </div>
           ) : (
             ""
@@ -47,16 +55,21 @@ const CardsPeople = (props) => {
             <Link
               to={"/people-details/" + props.character.uid}
               className="more"
-              data={charStore}
+              data={charUidStore} // Utilisez charUidStore au lieu de charStore
             >
-              <button className="btn btn-more" onClick={openModal}>Learn More</button>
+              <button className="btn btn-more" onClick={openModal}>
+                Learn More
+              </button>
             </Link>
             <button className="btn btn-fav btn-more">&#10031;</button>
-          </div>  
+          </div>
         </div>
       </div>
-      <PeopleDetails character={props.character} isOpen={isModalOpen} onClose={closeModal} />
-
+      <PeopleDetails
+        character={props.character}
+        isOpen={isModalOpen}
+        onClose={closeModal}
+      />
     </div>
   );
 };
