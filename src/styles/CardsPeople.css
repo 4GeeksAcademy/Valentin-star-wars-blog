@@ -24,6 +24,11 @@
   transform: scale(95%);
 }
 
+.prop-span {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
 .card {
   height: 490px;
   width: 280px;

@@ -5,10 +5,19 @@
   padding: 0;
 }
 .dropdown-menu {
-  background: transparent;
+  background: #002;
+  width: 300px;
+}
+.fav-num {
+  margin-left: 8px;
+}
+
+li > h2 {
+  color: #cac873;
+  font-size: 1.5rem;
 }
 .bx-lg {
-  font-size: #cac873;
+  font-size: 1.5rem;
   color: #cac873;
 }
 

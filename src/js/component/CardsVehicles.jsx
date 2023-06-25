@@ -27,14 +27,14 @@ const CardsVehicles = (props) => {
           {vehicleStore[0] ? (
             <div>
               <p className="card-text">
-                <b>Model:</b> <span>{vehicleStore[0].model}</span>
+                <span className="prop-span">Model:</span> <span>{vehicleStore[0].model}</span>
               </p>
               <p className="card-text">
-                <b>Class: </b>
+                <span className="prop-span">  Class:</span> 
                 <span>{vehicleStore[0].vehicle_class}</span>
               </p>
               <p className="card-text">
-                <b>Max Speed:</b> <span>{vehicleStore[0].max_atmosphering_speed}</span>
+              <span className="prop-span">Max Speed:</span> <span>{vehicleStore[0].max_atmosphering_speed}</span>
               </p>
             </div>
           ) : (

@@ -39,13 +39,13 @@ const CardsPeople = (props) => {
           {charStore[0] ? (
             <div>
               <p className="card-text">
-                Gender: <span>{charStore[0].gender}</span>
+                <span className="prop-span">Gender:</span> <span>{charStore[0].gender}</span>
               </p>
               <p className="card-text">
-                Hair color: <span>{charStore[0].hair_color}</span>
+                <span className="prop-span">Hair color:</span> <span>{charStore[0].hair_color}</span>
               </p>
               <p className="card-text">
-                Birth Year: <span>{charStore[0].birth_year}</span>
+                <span className="prop-span">Birth Year:</span> <span>{charStore[0].birth_year}</span>
               </p>
             </div>
           ) : (
