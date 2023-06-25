@@ -24,6 +24,10 @@ li > h2 {
 
 .logo-nav {
   width: 140px;
+  transition: all.6s;
+}
+.logo-nav:hover {
+  transform: scale(110%);
 }
 
 .btn-group {

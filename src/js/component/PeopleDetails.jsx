@@ -76,9 +76,13 @@ const PeopleDetails = (props) => {
             ></button>
           </div>
           <div className="modal-body">
-            <p>Gender: {gender}</p>
-            <p>Hair color: { hair_color}</p>
-            <p>Birth Year: {birth_year}</p>
+            <p>Gender: {character.gender}</p>
+            <p>Gender: {character.hair_color}</p>
+            <p>Gender: {character.birth_year}</p>
+            <p>Gender: {character.eye_color}</p>
+            <p>Gender: {character.mass}</p>
+            <p>Gender: {character.skin_color}</p>
+            <p>Gender: {character.created}</p>
           </div>
           <div className="modal-footer">
             <button

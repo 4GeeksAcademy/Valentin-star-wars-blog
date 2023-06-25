@@ -48,7 +48,8 @@ const CardsVehicles = (props) => {
             >
               <button className="btn btn-more">Learn More</button>
             </Link>
-            <button className="btn btn-fav btn-more" onClick={actions.addVehicles(props.vehicle)} >&#10031;</button>
+            <button className="btn btn-fav btn-more" onClick={() => actions.addVehicles(props.vehicle)}>&#10031;</button>
+
           </div>
         </div>
       </div>

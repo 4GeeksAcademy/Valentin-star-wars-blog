@@ -76,6 +76,7 @@ const CardsPeople = (props) => {
         character={props.character}
         isOpen={isModalOpen}
         onClose={closeModal}
+        charStore= {charStore[0]}
       />
     </div>
   );
