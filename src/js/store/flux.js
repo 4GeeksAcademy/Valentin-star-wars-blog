@@ -6,7 +6,8 @@ const getState = ({ getStore, getActions, setStore }) => {
       planets: [],
       planet: [],
 			vehicles: [], 
-			vehicle: []
+			vehicle: [],
+      favorties: []
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -132,6 +133,20 @@ const getState = ({ getStore, getActions, setStore }) => {
       vehicleDescription: (url) => {
         getActions().getVehicleDescription(url);
       },
+
+      addCharacters: (char) => {
+				const store = getStore()
+				const favoriteExist = store.favorites.includes(char)
+				if (!favoriteExist) {
+					setStore({favorites: [...store.favorites, char]})
+				}
+			},
+      deleteFavorite: (index) => {
+				const store = getStore();
+				const updatedFavorites = [...store.favorites];
+				updatedFavorites.splice(index, 1);
+				setStore({ favorites: updatedFavorites });
+			  },
     },
   };
 };
