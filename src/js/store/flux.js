@@ -5,100 +5,96 @@ const getState = ({ getStore, getActions, setStore }) => {
       character: [],
       planets: [],
       planet: [],
-			vehicles: [], 
-			vehicle: [],
-      favorties: []
+      vehicles: [],
+      vehicle: [],
+      favorites: [],
     },
     actions: {
       // Use getActions to call a function within a fuction
       getPeople: async () => {
-        try{
+        try {
           const settings = {
             method: "GET",
             headers: { "Content-Type": "application/json" },
           };
-  
+
           const request = await fetch(
-            `https://www.swapi.tech/api/people`,
+            `https://www.swapi.tech/api/people/`,
             settings
           );
           const json = await request.json();
           const data = json;
           setStore({ people: data.results });
-        } catch(error){
-          console.log('No se pudo cargar: ', error)
+        } catch (error) {
+          console.log("No se pudo cargar: ", error);
         }
-        
       },
 
       getCharacterDescription: async (url) => {
-        try{
+        try {
           const store = getStore();
           const settings = {
             method: "GET",
             headers: { "Content-Type": "application/json" },
           };
-  
+
           const request = await fetch(url, settings);
           const data = await request.json();
           setStore({ character: [...store.character, data.result.properties] });
-        }catch(error){
-          console.log(error)
+        } catch (error) {
+          console.log(error);
         }
-        
       },
 
       charDescription: (url) => {
         getActions().getCharacterDescription(url);
       },
       getPlanet: async () => {
-        try{
+        try {
           const settings = {
             method: "GET",
             headers: { "Content-Type": "application/json" },
           };
-  
+
           const request = await fetch(
-            `https://www.swapi.tech/api/planets`,
+            `https://www.swapi.tech/api/planets/`,
             settings
           );
           const json = await request.json();
           const data = json;
           setStore({ planets: data.results });
-        }catch(error){
-          console.log(error)
+        } catch (error) {
+          console.log(error);
         }
-        
       },
 
       getPlanetDescription: async (url) => {
-        try{
+        try {
           const store = getStore();
           const settings = {
             method: "GET",
             headers: { "Content-Type": "application/json" },
           };
-  
+
           const request = await fetch(url, settings);
           const json = await request.json();
           const data = json;
           setStore({ planet: [...store.planet, data.result.properties] });
-        }catch(error){
-          console.log(error)
+        } catch (error) {
+          console.log(error);
         }
-        
       },
 
       planetDescription: (url) => {
         getActions().getPlanetDescription(url);
       },
-			getVehicle: async () => {
-        try{
+      getVehicle: async () => {
+        try {
           const settings = {
             method: "GET",
             headers: { "Content-Type": "application/json" },
           };
-  
+
           const request = await fetch(
             `https://www.swapi.tech/api/vehicles`,
             settings
@@ -106,28 +102,26 @@ const getState = ({ getStore, getActions, setStore }) => {
           const json = await request.json();
           const data = json;
           setStore({ vehicles: data.results });
-        }catch(error){
-          console.log(errro)
+        } catch (error) {
+          console.log(errro);
         }
-        
       },
 
       getVehicleDescription: async (url) => {
-        try{
+        try {
           const store = getStore();
           const settings = {
             method: "GET",
             headers: { "Content-Type": "application/json" },
           };
-  
+
           const request = await fetch(url, settings);
           const json = await request.json();
           const data = json;
           setStore({ vehicle: [...store.vehicle, data.result.properties] });
-        }catch(error){
-          console.log('Probleme lors du chargement',error)
+        } catch (error) {
+          console.log("Probleme lors du chargement", error);
         }
-        
       },
 
       vehicleDescription: (url) => {
@@ -135,18 +129,18 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       addCharacters: (char) => {
-				const store = getStore()
-				const favoriteExist = store.favorites.includes(char)
-				if (!favoriteExist) {
-					setStore({favorites: [...store.favorites, char]})
-				}
-			},
+        const store = getStore();
+        const favoriteExist = store.favorites.includes(char);
+        if (!favoriteExist) {
+          setStore({ favorites: [...store.favorites, char] });
+        }
+      },
       deleteFavorite: (index) => {
-				const store = getStore();
-				const updatedFavorites = [...store.favorites];
-				updatedFavorites.splice(index, 1);
-				setStore({ favorites: updatedFavorites });
-			  },
+        const store = getStore();
+        const updatedFavorites = [...store.favorites];
+        updatedFavorites.splice(index, 1);
+        setStore({ favorites: updatedFavorites });
+      },
     },
   };
 };
