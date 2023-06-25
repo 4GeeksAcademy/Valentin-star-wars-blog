@@ -19,7 +19,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           };
 
           const request = await fetch(
-            'https://www.swapi.tech/api/people/',
+            "https://www.swapi.tech/api/people/",
             settings
           );
           const json = await request.json();
@@ -57,7 +57,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           };
 
           const request = await fetch(
-          'https://www.swapi.tech/api/planets/',
+            "https://www.swapi.tech/api/planets/",
             settings
           );
           const json = await request.json();
@@ -96,7 +96,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           };
 
           const request = await fetch(
-            'https://www.swapi.tech/api/vehicles/',
+            "https://www.swapi.tech/api/vehicles/",
             settings
           );
           const json = await request.json();
@@ -128,17 +128,14 @@ const getState = ({ getStore, getActions, setStore }) => {
         getActions().getVehicleDescription(url);
       },
 
-      addFavorites: (char) => {
-        setStore((prevState) => {
-          const favoriteCharacterAlreadyExist = prevState.favorites.some(
-            (favorite) => favorite === char
-          );
-          if (!favoriteCharacterAlreadyExist) {
-            return { favorites: [...prevState.favorites, char] };
-          }
-          return prevState;
-        });
+      addCharacters: (char) => {
+        const store = getStore();
+        const favoriteExist = store.favorites.includes(char);
+        if (!favoriteExist) {
+          setStore({ favorites: [...store.favorites, char] });
+        }
       },
+
       deleteFavorite: (index) => {
         const store = getStore();
         const updatedFavorites = [...store.favorites];
