@@ -4,11 +4,11 @@ import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home";
 import { Demo } from "./views/demo";
-import { SingleChar } from "./views/SingleChar";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import PeopleDetails from "./component/PeopleDetails.jsx";
 
 //create your first component
 const Layout = () => {
@@ -24,7 +24,7 @@ const Layout = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/Home" element={<Home />} />
-            <Route path="/SingleChar/:theid" element={<SingleChar />} />
+            <Route path="/PeopleDetails" element={<PeopleDetails />} />
             <Route path="*" element={<Home />} />
           </Routes>
           <Footer />

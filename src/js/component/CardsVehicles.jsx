@@ -16,7 +16,9 @@ const CardsVehicles = (props) => {
     <div className="cards">
       <div className="card" key={props.index}>
         <img
-          src={`https://starwars-visualguide.com/assets/img/vehicles/${props.index + 4}.jpg`}
+          src={`https://starwars-visualguide.com/assets/img/vehicles/${
+            props.index + 4
+          }.jpg`}
           className="card-img-top"
           alt="..."
         />
@@ -25,14 +27,14 @@ const CardsVehicles = (props) => {
           {vehicleStore[0] ? (
             <div>
               <p className="card-text">
-                <b>Model:</b> {vehicleStore[0].model}
+                <b>Model:</b> <span>{vehicleStore[0].model}</span>
               </p>
               <p className="card-text">
                 <b>Class: </b>
-                {vehicleStore[0].vehicle_class}
+                <span>{vehicleStore[0].vehicle_class}</span>
               </p>
               <p className="card-text">
-                <b>Max Speed:</b> {vehicleStore[0].max_atmosphering_speed}
+                <b>Max Speed:</b> <span>{vehicleStore[0].max_atmosphering_speed}</span>
               </p>
             </div>
           ) : (
@@ -46,6 +48,7 @@ const CardsVehicles = (props) => {
             >
               <button className="btn btn-more">Learn More</button>
             </Link>
+            <button className="btn btn-fav btn-more">&#10031;</button>
           </div>
         </div>
       </div>

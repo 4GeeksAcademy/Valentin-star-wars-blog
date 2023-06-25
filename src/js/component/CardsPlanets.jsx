@@ -28,10 +28,10 @@ const CardsPlanets = (props) => {
           <h5 className="card-title">{props.planet.name}</h5>
           {planetStore[0] ? (
             <div>
-              <p className="card-text">Terrain: {planetStore[0].terrain}</p>
-              <p className="card-text">Gravity: {planetStore[0].gravity}</p>
+              <p className="card-text"><b>Terrain:</b> <span>{planetStore[0].terrain}</span></p>
+              <p className="card-text"><b>Gravity:</b> <span>{planetStore[0].gravity}</span></p>
               <p className="card-text">
-                Population: {planetStore[0].population}
+                <b>Population:</b> <span>{planetStore[0].population}</span>
               </p>
             </div>
           ) : (
@@ -45,6 +45,8 @@ const CardsPlanets = (props) => {
             >
               <button className="btn btn-more">Learn More</button>
             </Link>
+            <button className="btn btn-fav btn-more">&#10031;</button>
+
           </div>
         </div>
       </div>

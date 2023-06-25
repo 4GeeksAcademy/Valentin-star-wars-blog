@@ -1,10 +1,18 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { Context } from "../store/appContext.js";
 import { Link } from "react-router-dom";
+import PeopleDetails from "./PeopleDetails.jsx";
 
 const CardsPeople = (props) => {
   const { store, actions } = useContext(Context);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
   
 
   const charStore = store.character.filter(
@@ -27,25 +35,27 @@ const CardsPeople = (props) => {
           <h5 className="card-title">{props.character.name}</h5>
           {charStore[0] ? (
             <div>
-              <p className="card-text">Gender: {charStore[0].gender}</p>
-              <p className="card-text">Hair color: {charStore[0].hair_color}</p>
-              <p className="card-text">Birth Year: {charStore[0].birth_year}</p>
+              <p className="card-text">Gender: <span>{charStore[0].gender}</span></p>
+              <p className="card-text">Hair color: <span>{charStore[0].hair_color}</span></p>
+              <p className="card-text">Birth Year: <span>{charStore[0].birth_year}</span></p>
             </div>
           ) : (
             ""
           )}
           <div className="d-flex justify-content-center">
             <Link
-              to={"/single/" + props.character.uid}
+              to={"/PeopleDetails/" + props.character.uid}
               className="more"
               data={charStore}
             >
-              <button className="btn btn-more">Learn More</button>
+              <button className="btn btn-more" onClick={openModal}>Learn More</button>
             </Link>
             <button className="btn btn-fav btn-more">&#10031;</button>
-          </div>
+          </div>  
         </div>
       </div>
+      <PeopleDetails isOpen={isModalOpen}
+        onClose={closeModal} />
     </div>
   );
 };
