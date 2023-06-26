@@ -11,7 +11,7 @@ const PeopleDetails = (props) => {
   }, []);
 
   const character = store.character.find((char) => char.uid === params.id);
-
+  
   if (!character) {
     return (
       <div
@@ -50,7 +50,6 @@ const PeopleDetails = (props) => {
     );
   }
 
-
   return (
     <div
       className={`modal ${props.isOpen ? "show" : ""}`}
@@ -60,7 +59,6 @@ const PeopleDetails = (props) => {
       <div className="modal-dialog">
         <div className="modal-content">
           <div className="modal-header">
-           
             <h5 className="modal-title">{props.character.name}</h5>
             <button
               type="button"
@@ -71,7 +69,7 @@ const PeopleDetails = (props) => {
             ></button>
           </div>
           <div className="modal-body">
-          <img
+            <img
               src={`https://starwars-visualguide.com/assets/img/characters/${props.character.uid}.jpg`}
               className="image-detalle col6 col-md-6"
               alt="..."
@@ -87,8 +85,16 @@ const PeopleDetails = (props) => {
             </div>
           </div>
           <div className="modal-footer">
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt quaerat dolorem corrupti incidunt eligendi, tenetur consectetur! Eaque asperiores maiores totam quaerat? Blanditiis eius necessitatibus beatae quam, ipsum quasi officiis vel!
-            Rem saepe consectetur quam minima facere totam praesentium, illum ea ratione odit vel temporibus ad eos, quasi exercitationem. Eligendi consequatur veritatis dolorem beatae fugit reprehenderit illum consequuntur nostrum nihil corporis.</p>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt
+              quaerat dolorem corrupti incidunt eligendi, tenetur consectetur!
+              Eaque asperiores maiores totam quaerat? Blanditiis eius
+              necessitatibus beatae quam, ipsum quasi officiis vel! Rem saepe
+              consectetur quam minima facere totam praesentium, illum ea ratione
+              odit vel temporibus ad eos, quasi exercitationem. Eligendi
+              consequatur veritatis dolorem beatae fugit reprehenderit illum
+              consequuntur nostrum nihil corporis.
+            </p>
           </div>
         </div>
       </div>

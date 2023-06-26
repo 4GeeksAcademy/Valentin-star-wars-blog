@@ -32,7 +32,7 @@ export const Navbar = () => {
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            FAVORITE
+            FAVORITES
             <span className="fav-num">{store.favorites.length}</span>
           </button>
           <ul className="dropdown-menu  mx-auto">
