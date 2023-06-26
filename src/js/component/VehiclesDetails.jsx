@@ -5,12 +5,13 @@ import { Context } from "../store/appContext";
 const VehiclesDetails = (props) => {
   const { store, actions } = useContext(Context);
   const params = useParams();
+  const vehicle = store.vehicle.find((vhc) => vhc.uid === params.id);
 
+  
   useEffect(() => {
     actions.vehicleDescription(props.vehicle.url);
   }, []);
 
-  const vehicle = store.vehicle.find((vhc) => vhc.uid === params.id);
 
   
   if (!vehicle) {
@@ -77,14 +78,14 @@ const VehiclesDetails = (props) => {
               alt="..."
             />
             <div className="text-description">
-              <p>Gravity: {vehicle.gravity}</p>
-              <p>Climat: {vehicle.climat}</p>
-              <p>Terrain: {vehicle.terrain}</p>
-              <p>Diameter: {vehicle.diameter}</p>
-              <p>Orbital period: {vehicle.orbital_period}</p>
-              <p>Rotation period: {vehicle.rotation_period}</p>
-              <p>Surface water: {vehicle.surface_water}</p>
-              <p>Population: {vehicle.population}</p>
+              <p>Model: {vehicle.model}</p>
+              <p>Vehicle class: {vehicle.vehicle_class}</p>
+              <p>Max speed: {vehicle.max_atmosphering_speed}</p>
+              <p>Passengers: {vehicle.passengers}</p>
+              <p>Consumables: {vehicle.consumables}</p>
+              <p>Cost in credits: {vehicle.cost_in_credits}</p>
+              <p>Manufacturer: {vehicle.manufacturer}</p>
+              <p>Length: {vehicle.length}</p>
             </div>
           </div>
           <div className="modal-footer">

@@ -5,12 +5,13 @@ import { Context } from "../store/appContext";
 const PlanetsDetails = (props) => {
   const { store, actions } = useContext(Context);
   const params = useParams();
+  const planet = store.planet.find((pla) => pla.uid === params.id);
 
+  
   useEffect(() => {
     actions.planetDescription(props.planet.url);
   }, []);
 
-  const planet = store.planet.find((pla) => pla.uid === params.id);
 
   
   if (!planet) {
@@ -72,13 +73,17 @@ const PlanetsDetails = (props) => {
           </div>
           <div className="modal-body">
           <img
-              src={`https://starwars-visualguide.com/assets/img/planets/${props.planet.uid}.jpg`}
+              src={
+                props.planet.uid > 0
+              ? `https://upload.wikimedia.org/wikipedia/commons/2/23/DesertPlanet.jpg`
+              :
+                `https://starwars-visualguide.com/assets/img/planets/${props.planet.uid}.jpg`}
               className="image-detalle col6 col-md-6"
               alt="..."
             />
             <div className="text-description">
               <p>Gravity: {planet.gravity}</p>
-              <p>Climat: {planet.climat}</p>
+              <p>Climat: {planet.climate}</p>
               <p>Terrain: {planet.terrain}</p>
               <p>Diameter: {planet.diameter}</p>
               <p>Orbital period: {planet.orbital_period}</p>

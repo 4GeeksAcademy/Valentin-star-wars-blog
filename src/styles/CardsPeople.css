@@ -109,7 +109,7 @@ a {
   background: #2c2a14ef;
 }
 ::-webkit-scrollbar-track:active {
-  background: #333333;
+  background: transparent;
 }
 ::-webkit-scrollbar-corner {
   background: transparent;

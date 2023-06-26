@@ -1,16 +1,20 @@
 import React, { useEffect, useContext, useState } from "react";
 import { Context } from "../store/appContext.js";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import VehiclesDetails from "./VehiclesDetails.jsx";
 
 const CardsVehicles = (props) => {
   const { store, actions } = useContext(Context);
+  const params = useParams();
+  const vehicle = store.vehicle.find((vhc) => vhc.uid === params.id);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
 
   const vehicleStore = store.vehicle.filter(
     (vhc) => vhc.name === props.vehicle.name
   );
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -22,12 +26,14 @@ const CardsVehicles = (props) => {
   useEffect(() => {
     actions.vehicleDescription(props.vehicle.url);
   }, []);
+
+
   return (
     <div className="cards">
       <div className="card" key={props.index}>
         <img
           src={`https://starwars-visualguide.com/assets/img/vehicles/${
-            props.index+4
+            props.vehicle.uid
           }.jpg`}
           className="card-img-top"
           alt="..."
@@ -37,14 +43,14 @@ const CardsVehicles = (props) => {
           {vehicleStore[0] ? (
             <div>
               <p className="card-text">
-                <span className="prop-span">Model:</span> <span className='value-prop'>{vehicleStore[0].model}</span>
+                <span className="prop-span">Model: </span> <span className='value-prop'>{vehicleStore[0].model}</span>
               </p>
               <p className="card-text">
-                <span className="prop-span">  Class:</span> 
+                <span className="prop-span">  Class: </span> 
                 <span className='value-prop'>{vehicleStore[0].vehicle_class}</span>
               </p>
               <p className="card-text">
-              <span className="prop-span">Max Speed:</span> <span className='value-prop'>{vehicleStore[0].max_atmosphering_speed}</span>
+              <span className="prop-span">Max Speed: </span> <span className='value-prop'>{vehicleStore[0].max_atmosphering_speed}</span>
               </p>
             </div>
           ) : (

@@ -5,12 +5,13 @@ import { Context } from "../store/appContext";
 const PeopleDetails = (props) => {
   const { store, actions } = useContext(Context);
   const params = useParams();
+  const character = store.character.find((char) => char.uid === params.id);
 
+  
   useEffect(() => {
     actions.charDescription(props.character.url);
   }, []);
 
-  const character = store.character.find((char) => char.uid === params.id);
   
   if (!character) {
     return (
