@@ -46,7 +46,8 @@ export const Navbar = () => {
                       className="bx-lg bx-tada-hover"
                       color="yellow"
                       name="trash-alt"
-                      onClick={() => {
+                      onClick={(event) => {
+                        event.stopPropagation()
                         actions.deleteFavorite(favorite);
                       }}
                     ></box-icon>

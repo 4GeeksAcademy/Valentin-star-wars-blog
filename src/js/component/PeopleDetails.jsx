@@ -91,9 +91,7 @@ const PeopleDetails = (props) => {
               Eaque asperiores maiores totam quaerat? Blanditiis eius
               necessitatibus beatae quam, ipsum quasi officiis vel! Rem saepe
               consectetur quam minima facere totam praesentium, illum ea ratione
-              odit vel temporibus ad eos, quasi exercitationem. Eligendi
-              consequatur veritatis dolorem beatae fugit reprehenderit illum
-              consequuntur nostrum nihil corporis.
+              odit vel temporibus ad eos, quasi exercitationem. 
             </p>
           </div>
         </div>
