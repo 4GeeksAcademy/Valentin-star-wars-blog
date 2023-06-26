@@ -74,7 +74,7 @@ const PlanetsDetails = (props) => {
           <div className="modal-body">
           <img
               src={
-                props.planet.uid > 0
+                props.planet.uid = 1
               ? `https://upload.wikimedia.org/wikipedia/commons/2/23/DesertPlanet.jpg`
               :
                 `https://starwars-visualguide.com/assets/img/planets/${props.planet.uid}.jpg`}
@@ -82,14 +82,14 @@ const PlanetsDetails = (props) => {
               alt="..."
             />
             <div className="text-description">
-              <p>Gravity: {planet.gravity}</p>
-              <p>Climat: {planet.climate}</p>
-              <p>Terrain: {planet.terrain}</p>
-              <p>Diameter: {planet.diameter}</p>
-              <p>Orbital period: {planet.orbital_period}</p>
-              <p>Rotation period: {planet.rotation_period}</p>
-              <p>Surface water: {planet.surface_water}</p>
-              <p>Population: {planet.population}</p>
+              <p><span className="prop-detail">Gravity:</span>  <span className="value-detail">{planet.gravity}</span> </p>
+              <p><span className="prop-detail">Climat:</span>  <span className="value-detail">{planet.climate}</span> </p>
+              <p><span className="prop-detail">Terrain:</span>  <span className="value-detail">{planet.terrain}</span> </p>
+              <p><span className="prop-detail">Diameter:</span>  <span className="value-detail">{planet.diameter}</span> </p>
+              <p><span className="prop-detail">Orbital period:</span>  <span className="value-detail">{planet.orbital_period}</span> </p>
+              <p><span className="prop-detail">Rotation period:</span>  <span className="value-detail">{planet.rotation_period}</span> </p>
+              <p><span className="prop-detail">Surface water:</span>  <span className="value-detail">{planet.surface_water}</span> </p>
+              <p><span className="prop-detail">Population:</span>  <span className="value-detail">{planet.population}</span> </p>
             </div>
           </div>
           <div className="modal-footer">

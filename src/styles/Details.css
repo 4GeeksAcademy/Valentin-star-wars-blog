@@ -25,6 +25,12 @@
   color: #002;
 }
 
+.text-description {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  margin-left: 50px;
+}
 .btn-close:hover {
   background-color: #f56d04;
   color: #002;
@@ -35,4 +41,16 @@
   font-size: 2.2rem;
   margin: 0;
   padding: 0;
+}
+
+.prop-value {
+  font-weight: 500;
+}
+
+.value-detail {
+  color: #cdccab;
+}
+
+.modal-footer p {
+  letter-spacing: 1px;
 }

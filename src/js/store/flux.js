@@ -1,5 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
   const API_REQUEST_DELAY = 1000;
+  const API_REQUEST_DELAY2 = 2000;
+  const API_REQUEST_DELAY3 = 3000;
   return {
     store: {
       people: [],
@@ -67,7 +69,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           const json = await request.json();
           const data = json;
           setStore({ planets: data.results });
-          setTimeout(resolve, API_REQUEST_DELAY)
+          setTimeout(resolve, API_REQUEST_DELAY2)
 
         } catch (error) {
           console.log(error);
@@ -108,7 +110,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           const json = await request.json();
           const data = json;
           setStore({ vehicles: data.results });
-          setTimeout(resolve, API_REQUEST_DELAY)
+          setTimeout(resolve, API_REQUEST_DELAY3)
 
         } catch (error) {
           console.log(error);

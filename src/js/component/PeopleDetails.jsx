@@ -76,13 +76,13 @@ const PeopleDetails = (props) => {
               alt="..."
             />
             <div className="text-description">
-              <p>Gender: {character.gender}</p>
-              <p>Hair color: {character.hair_color}</p>
-              <p>Birth year: {character.birth_year}</p>
-              <p>Eye color: {character.eye_color}</p>
-              <p>Mass: {character.mass}</p>
-              <p>Skin color: {character.skin_color}</p>
-              <p>Created: {character.created}</p>
+              <p><span className="prop-detail">Gender:</span>  <span className="value-detail">{character.gender}</span> </p>
+              <p><span className="prop-detail">Hair color:</span>  <span className="value-detail">{character.hair_color}</span> </p>
+              <p><span className="prop-detail">Birth year:</span>  <span className="value-detail">{character.birth_year}</span> </p>
+              <p><span className="prop-detail">Eye color:</span>  <span className="value-detail">{character.eye_color}</span> </p>
+              <p><span className="prop-detail">Mass:</span>  <span className="value-detail">{character.mass}</span> </p>
+              <p><span className="prop-detail">Skin color:</span>  <span className="value-detail">{character.skin_color}</span> </p>
+              <p><span className="prop-detail">Created:</span>  <span className="value-detail">{character.created}</span> </p>
             </div>
           </div>
           <div className="modal-footer">

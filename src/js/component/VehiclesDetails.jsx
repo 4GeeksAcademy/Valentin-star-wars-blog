@@ -78,14 +78,14 @@ const VehiclesDetails = (props) => {
               alt="..."
             />
             <div className="text-description">
-              <p>Model: {vehicle.model}</p>
-              <p>Vehicle class: {vehicle.vehicle_class}</p>
-              <p>Max speed: {vehicle.max_atmosphering_speed}</p>
-              <p>Passengers: {vehicle.passengers}</p>
-              <p>Consumables: {vehicle.consumables}</p>
-              <p>Cost in credits: {vehicle.cost_in_credits}</p>
-              <p>Manufacturer: {vehicle.manufacturer}</p>
-              <p>Length: {vehicle.length}</p>
+              <p><span className="prop-detail">Model:</span>  <span className="value-detail">{vehicle.model}</span> </p>
+              <p><span className="prop-detail">Vehicle class:</span>  <span className="value-detail">{vehicle.vehicle_class}</span> </p>
+              <p><span className="prop-detail">Max speed:</span>  <span className="value-detail">{vehicle.max_atmosphering_speed}</span> </p>
+              <p><span className="prop-detail">Passengers:</span>  <span className="value-detail">{vehicle.passengers}</span> </p>
+              <p><span className="prop-detail">Consumables:</span>  <span className="value-detail">{vehicle.consumables}</span> </p>
+              <p><span className="prop-detail">Cost in credits:</span>  <span className="value-detail">{vehicle.cost_in_credits}</span> </p>
+              <p><span className="prop-detail">Manufacturer:</span>  <span className="value-detail">{vehicle.manufacturer}</span> </p>
+              <p><span className="prop-detail">Length:</span>  <span className="value-detail">{vehicle.length}</span> </p>
             </div>
           </div>
           <div className="modal-footer">
