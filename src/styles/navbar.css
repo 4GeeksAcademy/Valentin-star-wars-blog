@@ -1,13 +1,18 @@
 .container-fluid {
-  background-color: #000000;
+  background-color: transparent;
 }
 .navbar {
   padding: 0;
+  background-color: transparent;
+  width: 100%;
+  height: 150px;
+  z-index: 1;
 }
 .dropdown-menu {
   background: #002;
   width: 300px;
 }
+
 .fav-num {
   margin-left: 8px;
   font-size: 1.6rem;
@@ -16,10 +21,14 @@
 li > h2 {
   color: #cac873;
   font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .bx-lg {
   font-size: 1.5rem;
   color: #cac873;
+  
 }
 
 .logo-nav {

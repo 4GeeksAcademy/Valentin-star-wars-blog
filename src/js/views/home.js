@@ -3,6 +3,7 @@ import { Context } from "../store/appContext.js";
 import CardsPeople from "../component/CardsPeople.jsx";
 import CardsPlanets from "../component/CardsPlanets.jsx";
 import CardsVehicles from "../component/CardsVehicles.jsx";
+import { Navbar } from "../component/navbar.js";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
@@ -39,7 +40,8 @@ export const Home = () => {
         </div>
       ) : (
         <>
-          <div>
+          <Navbar />
+          <div className="main-content">
             <div>
               <div>
                 <h2 className="heading">Characters:</h2>
@@ -109,7 +111,6 @@ export const Home = () => {
       )}
     </>
   );
-  
 };
 
 export default Home;
