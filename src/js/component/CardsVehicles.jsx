@@ -23,9 +23,7 @@ const CardsVehicles = (props) => {
     setIsModalOpen(false);
   };
 
-  useEffect(() => {
-    actions.vehicleDescription(props.vehicle.url);
-  }, []);
+
 
 
   return (

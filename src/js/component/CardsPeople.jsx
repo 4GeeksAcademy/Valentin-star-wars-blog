@@ -22,7 +22,7 @@ const CardsPeople = (props) => {
     (char) => char.uid === props.character.uid
   );
 
-  useEffect(() => actions.charDescription(props.character.url), []);
+ 
 
   return (
     <div className="cards">

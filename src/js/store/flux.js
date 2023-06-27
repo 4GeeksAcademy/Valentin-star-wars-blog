@@ -27,7 +27,8 @@ const getState = ({ getStore, getActions, setStore }) => {
           );
           const json = await request.json();
           const data = json;
-          setStore({ people: data.results });
+          const store = getStore()
+          setStore({...store, people: data.results });
           await new Promise((resolve) =>
             setTimeout(resolve, API_REQUEST_DELAY)
           );
@@ -69,7 +70,9 @@ const getState = ({ getStore, getActions, setStore }) => {
           const json = await request.json();
           const data = json;
           setStore({ planets: data.results });
-          setTimeout(resolve, API_REQUEST_DELAY2)
+          await new Promise((resolve) =>
+            setTimeout(resolve, API_REQUEST_DELAY2)
+          );
 
         } catch (error) {
           console.log(error);
@@ -110,7 +113,9 @@ const getState = ({ getStore, getActions, setStore }) => {
           const json = await request.json();
           const data = json;
           setStore({ vehicles: data.results });
-          setTimeout(resolve, API_REQUEST_DELAY3)
+          await new Promise((resolve) =>
+            setTimeout(resolve, API_REQUEST_DELAY3)
+          );
 
         } catch (error) {
           console.log(error);

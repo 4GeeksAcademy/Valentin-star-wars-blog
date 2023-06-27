@@ -18,7 +18,6 @@ const CardsPlanets = (props) => {
     setIsModalOpen(false);
   };
 
-  useEffect(() => actions.planetDescription(props.planet.url), []);
 
   return (
     <div className="cards">
@@ -48,7 +47,9 @@ const CardsPlanets = (props) => {
               </p>
               <p className="card-text">
                 <span className="prop-span">Orbital Period:</span>{" "}
-                <span className="value-prop">{planetStore[0].orbital_period}</span>
+                <span className="value-prop">
+                  {planetStore[0].orbital_period}
+                </span>
               </p>
             </div>
           ) : (
@@ -60,10 +61,16 @@ const CardsPlanets = (props) => {
               className="more"
               data={planetStore}
             >
-              <button className="btn btn-more" onClick={openModal}>Learn More</button>
+              <button className="btn btn-more" onClick={openModal}>
+                Learn More
+              </button>
             </Link>
-            <button className="btn btn-fav btn-more" onClick={() => actions.addPlanets(props.planet)}>&#10031;</button>
-
+            <button
+              className="btn btn-fav btn-more"
+              onClick={() => actions.addPlanets(props.planet)}
+            >
+              &#10031;
+            </button>
           </div>
         </div>
       </div>
@@ -71,7 +78,7 @@ const CardsPlanets = (props) => {
         planet={props.planet}
         isOpen={isModalOpen}
         onClose={closeModal}
-        planetStore= {planetStore[0]}
+        planetStore={planetStore[0]}
       />
     </div>
   );
