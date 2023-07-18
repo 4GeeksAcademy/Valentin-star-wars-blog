@@ -1,9 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const myToken = localStorage.getItem("myToken");
+    const userLoggedIn = !myToken;
+    setIsLoggedIn(userLoggedIn);
+  }, []);
+
   return (
     <div>
       <nav className="navbar navbar-expand-md  navbar-light">
@@ -58,6 +66,20 @@ export const Navbar = () => {
               })}
             </ul>
           </div>
+          {isLoggedIn ? (
+            <button className="btn btn-primary" onClick={actions.logout}>
+              Log Out
+            </button>
+          ) : (
+            <div>
+              <Link to="/login">
+                <button className="btn btn-primary">Log In</button>
+              </Link>
+              <Link to="/signup">
+                <button className="btn btn-primary">Sign Up</button>
+              </Link>
+            </div>
+          )}
         </div>
       </nav>
     </div>

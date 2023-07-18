@@ -173,7 +173,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       // Fonction de connexion
       login: async (userEmail, userPassword) => {
         try {
-          let myToken = localStorage.getItem("myToken"); // Utiliser la clé "myToken" au lieu de "token"
+          let myToken = localStorage.getItem("myToken");
           const response = await fetch(
             "https://valentinfrar-upgraded-disco-v4vqw666pvwcxw4v-3000.preview.app.github.dev/login",
             {
