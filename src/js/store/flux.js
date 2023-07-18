@@ -170,18 +170,28 @@ const getState = ({ getStore, getActions, setStore }) => {
         );
         setStore({ favorites: updatedFavorites });
       },
+      // Fonction de connexion
       login: async (userEmail, userPassword) => {
-        // console.log(userEmail,userPassword);
         try {
-          let response = await axios.post(
+          let myToken = localStorage.getItem("token");
+          const response = await fetch(
             "https://valentinfrar-upgraded-disco-v4vqw666pvwcxw4v-3000.preview.app.github.dev/login",
             {
-              email: userEmail,
-              password: userPassword,
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: myToken,
+              },
+              body: JSON.stringify({
+                email: userEmail,
+                password: userPassword,
+              }),
             }
           );
+
           if (response.status === 200) {
-            localStorage.setItem("myToken", response.data.access_token);
+            const data = await response.json();
+            localStorage.setItem("myToken", data.access_token);
             return true;
           }
         } catch (err) {
@@ -191,24 +201,35 @@ const getState = ({ getStore, getActions, setStore }) => {
           }
         }
       },
-      signin: async (userEmail,userPassword) => {
-        // console.log(userEmail,userPassword);
-        try{
-          let response = await axios.post('https://valentinfrar-upgraded-disco-v4vqw666pvwcxw4v-3000.preview.app.github.dev/signup', {
-            email:userEmail,
-            password:userPassword
-            })
-          if(response.status === 200){
-            console.log("Todo perfecto")
-          }
 
-        }catch(err){
+      // Fonction d'inscription
+      signup: async (userEmail, userPassword) => {
+        try {
+          let myToken = localStorage.getItem("token");
+          const response = await fetch(
+            "https://valentinfrar-upgraded-disco-v4vqw666pvwcxw4v-3000.preview.app.github.dev/signup",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: myToken,
+              },
+              body: JSON.stringify({
+                email: userEmail,
+                password: userPassword,
+              }),
+            }
+          );
+
+          if (response.status === 200) {
+            console.log("Todo perfecto");
+          }
+        } catch (err) {
           console.log(err);
-          if(err.response.status === 401){
+          if (err.response.status === 401) {
             return false;
           }
         }
-
       },
     },
   };
