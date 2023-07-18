@@ -11,7 +11,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       vehicles: [],
       vehicle: [],
       favorites: [],
-      isLoading: true
+      isLoading: true,
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -28,8 +28,8 @@ const getState = ({ getStore, getActions, setStore }) => {
           );
           const json = await request.json();
           const data = json;
-          const store = getStore()
-          setStore({...store, people: data.results });
+          const store = getStore();
+          setStore({ ...store, people: data.results });
           await new Promise((resolve) =>
             setTimeout(resolve, API_REQUEST_DELAY)
           );
@@ -74,7 +74,6 @@ const getState = ({ getStore, getActions, setStore }) => {
           await new Promise((resolve) =>
             setTimeout(resolve, API_REQUEST_DELAY2)
           );
-
         } catch (error) {
           console.log(error);
         }
@@ -93,7 +92,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           const data = json;
           setStore({ planet: [...store.planet, data.result.properties] });
         } catch (error) {
-          console.log('Planets load problem',error);
+          console.log("Planets load problem", error);
         }
       },
 
@@ -117,7 +116,6 @@ const getState = ({ getStore, getActions, setStore }) => {
           await new Promise((resolve) =>
             setTimeout(resolve, API_REQUEST_DELAY3)
           );
-
         } catch (error) {
           console.log(error);
         }
@@ -171,6 +169,46 @@ const getState = ({ getStore, getActions, setStore }) => {
           (item) => item !== favorite
         );
         setStore({ favorites: updatedFavorites });
+      },
+      login: async (userEmail, userPassword) => {
+        // console.log(userEmail,userPassword);
+        try {
+          let response = await axios.post(
+            "https://valentinfrar-upgraded-disco-v4vqw666pvwcxw4v-3000.preview.app.github.dev/login",
+            {
+              email: userEmail,
+              password: userPassword,
+            }
+          );
+          if (response.status === 200) {
+            localStorage.setItem("myToken", response.data.access_token);
+            return true;
+          }
+        } catch (err) {
+          console.log(err);
+          if (err.response.status === 401) {
+            return false;
+          }
+        }
+      },
+      signin: async (userEmail,userPassword) => {
+        // console.log(userEmail,userPassword);
+        try{
+          let response = await axios.post('https://valentinfrar-upgraded-disco-v4vqw666pvwcxw4v-3000.preview.app.github.dev/signup', {
+            email:userEmail,
+            password:userPassword
+            })
+          if(response.status === 200){
+            console.log("Todo perfecto")
+          }
+
+        }catch(err){
+          console.log(err);
+          if(err.response.status === 401){
+            return false;
+          }
+        }
+
       },
     },
   };
