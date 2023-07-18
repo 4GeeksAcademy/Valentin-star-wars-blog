@@ -173,14 +173,14 @@ const getState = ({ getStore, getActions, setStore }) => {
       // Fonction de connexion
       login: async (userEmail, userPassword) => {
         try {
-          let myToken = localStorage.getItem("token");
+          let myToken = localStorage.getItem("myToken"); // Utiliser la clé "myToken" au lieu de "token"
           const response = await fetch(
             "https://valentinfrar-upgraded-disco-v4vqw666pvwcxw4v-3000.preview.app.github.dev/login",
             {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
-                Authorization: myToken,
+                Authorization: `Bearer ${myToken}`, // Utiliser le préfixe "Bearer" pour l'autorisation
               },
               body: JSON.stringify({
                 email: userEmail,
@@ -193,26 +193,27 @@ const getState = ({ getStore, getActions, setStore }) => {
             const data = await response.json();
             localStorage.setItem("myToken", data.access_token);
             return true;
+          } else if (response.status === 401) {
+            // Gérer l'erreur de connexion non autorisée
+            return false;
           }
         } catch (err) {
           console.log(err);
-          if (err.response.status === 401) {
-            return false;
-          }
+          return false; // Gérer les autres erreurs, renvoyer false par défaut
         }
       },
 
       // Fonction d'inscription
       signup: async (userEmail, userPassword) => {
         try {
-          let myToken = localStorage.getItem("token");
+          let myToken = localStorage.getItem("myToken"); // Utiliser la clé "myToken" au lieu de "token"
           const response = await fetch(
             "https://valentinfrar-upgraded-disco-v4vqw666pvwcxw4v-3000.preview.app.github.dev/signup",
             {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
-                Authorization: myToken,
+                Authorization: `Bearer ${myToken}`, // Utiliser le préfixe "Bearer" pour l'autorisation
               },
               body: JSON.stringify({
                 email: userEmail,
@@ -223,12 +224,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 
           if (response.status === 200) {
             console.log("Todo perfecto");
+          } else if (response.status === 401) {
+            // Gérer l'erreur de connexion non autorisée
+            return false;
           }
         } catch (err) {
           console.log(err);
-          if (err.response.status === 401) {
-            return false;
-          }
+          return false; // Gérer les autres erreurs, renvoyer false par défaut
         }
       },
     },

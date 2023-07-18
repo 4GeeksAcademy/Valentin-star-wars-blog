@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
 
-
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -13,7 +12,7 @@ const Signup = () => {
     e.preventDefault();
     // console.log(email,password);
     //    boolean   <=
-    let register = await actions.login(email, password);
+    let register = await actions.signup(email, password);
     console.log(register);
     if (register) {
       //true
@@ -22,7 +21,10 @@ const Signup = () => {
   }
 
   return (
-    <form className="container" onSubmit={handleSubmit}>
+    <form
+      className="container card mx-auto bg-transparent text-center"
+      onSubmit={handleSubmit}
+    >
       <div className="mb-3 ">
         <label htmlFor="exampleInputEmail1" className="form-label">
           Email address
@@ -50,7 +52,7 @@ const Signup = () => {
         />
       </div>
       <button type="submit" className="btn btn-primary">
-        Submit
+        Create account
       </button>
     </form>
   );
