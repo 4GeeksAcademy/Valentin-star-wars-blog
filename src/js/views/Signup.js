@@ -17,7 +17,7 @@ const Signup = () => {
     console.log(register);
     if (register) {
       //true
-      navigate("/");
+      navigate("/login");
     }
   }
 

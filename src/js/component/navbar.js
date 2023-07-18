@@ -8,7 +8,7 @@ export const Navbar = () => {
 
   useEffect(() => {
     const myToken = localStorage.getItem("myToken");
-    const userLoggedIn = !myToken;
+    const userLoggedIn = !!myToken;
     setIsLoggedIn(userLoggedIn);
   }, []);
 

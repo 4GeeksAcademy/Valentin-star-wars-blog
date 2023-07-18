@@ -233,6 +233,10 @@ const getState = ({ getStore, getActions, setStore }) => {
           return false; // Gérer les autres erreurs, renvoyer false par défaut
         }
       },
+      logout: () => {
+        let token = localStorage.getItem("myToken")
+        return token != null ? true : false
+      }
     },
   };
 };
