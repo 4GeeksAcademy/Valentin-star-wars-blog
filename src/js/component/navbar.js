@@ -12,6 +12,15 @@ export const Navbar = () => {
     setIsLoggedIn(userLoggedIn);
   }, []);
 
+  function handleLogout() {
+    let isLogged = actions.logout();
+    if (isLogged) {
+      localStorage.removeItem("myToken");
+      setIsLoggedIn(false)
+      console.log("cierras sesion pero no refresca");
+    }
+  }
+
   return (
     <div>
       <nav className="navbar navbar-expand-md  navbar-light">
@@ -67,7 +76,7 @@ export const Navbar = () => {
             </ul>
           </div>
           {isLoggedIn ? (
-            <button className="btn btn-primary" onClick={actions.logout}>
+            <button className="btn btn-primary" onClick={handleLogout}>
               Log Out
             </button>
           ) : (
